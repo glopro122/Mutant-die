@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfmalowijidc2"]
+
+[ext_resource type="Script" uid="uid://dlk8hxbkqlcix" path="res://login.gd" id="1_62e2m"]
+[ext_resource type="Texture2D" uid="uid://bvejsf8ot6pab" path="res://pngtree-a-large-industrial-factory-with-thick-smoke-billowing-from-the-chimneys-image_16761692.jpg" id="2_qtu10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qtu10")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/ColorRect"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -104.0
+offset_right = 173.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_62e2m")
+text = "Registro"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qtu10")
+text = "Nombre"
+
+[node name="username" type="LineEdit" parent="Menu/ColorRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
+text = "Codigo E"
+
+[node name="password" type="LineEdit" parent="Menu/ColorRect/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="Jugar" type="Button" parent="Menu/ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "Jugar"
+
+[node name="Salir" type="Button" parent="Menu/ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Salir"
+
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/HBoxContainer/Jugar" to="Menu" method="_on_jugar_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/HBoxContainer/Salir" to="Menu" method="_on_salir_pressed"]

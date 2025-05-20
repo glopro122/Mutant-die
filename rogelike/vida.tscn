@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdyssxc5ugwy"]
+
+[ext_resource type="Script" uid="uid://c34po1qxa7vnd" path="res://vida.gd" id="1_t2nme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2cj7"]
+bg_color = Color(0, 0.690196, 0, 0.513726)
+
+[node name="Vida" type="ProgressBar"]
+offset_right = 152.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_i2cj7")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("1_t2nme")

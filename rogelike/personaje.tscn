@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://dklimamc5vuht"]
+
+[ext_resource type="Script" uid="uid://cvfpv773yj3nc" path="res://personaje.gd" id="1_ltgau"]
+[ext_resource type="Texture2D" uid="uid://dwlxvmpli7e8l" path="res://Personajes/Imagen10.png" id="2_yppqc"]
+[ext_resource type="Texture2D" uid="uid://dbijq4tckus0n" path="res://Personajes/Imagen11.png" id="3_gj0cs"]
+[ext_resource type="PackedScene" uid="uid://dcdyssxc5ugwy" path="res://vida.tscn" id="4_gj0cs"]
+[ext_resource type="PackedScene" uid="uid://b3mntn7byi885" path="res://salud.tscn" id="5_ck3sb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj0cs"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yppqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gj0cs")
+}],
+"loop": false,
+"name": &"Caminar",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yppqc")
+}],
+"loop": true,
+"name": &"Reposo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltgau"]
+size = Vector2(187.833, 168.532)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yppqc"]
+size = Vector2(204, 179)
+
+[node name="personaje" type="CharacterBody2D"]
+scale = Vector2(0.186336, 0.195808)
+collision_mask = 7
+script = ExtResource("1_ltgau")
+
+[node name="Mago" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2.55353)
+scale = Vector2(0.59446, 0.360112)
+sprite_frames = SubResource("SpriteFrames_gj0cs")
+animation = &"Caminar"
+autoplay = "Reposo"
+frame = 1
+frame_progress = 0.0783184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(-2.68332, -2.55352)
+shape = SubResource("RectangleShape2D_ltgau")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yppqc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Vida" parent="." instance=ExtResource("4_gj0cs")]
+offset_left = -64.3998
+offset_top = -107.248
+offset_right = 64.6002
+offset_bottom = -90.2479
+
+[node name="Salud" parent="." instance=ExtResource("5_ck3sb")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

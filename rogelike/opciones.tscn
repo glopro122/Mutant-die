@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch0sme84mmexd"]
+
+[ext_resource type="Script" uid="uid://bet8bxwoumphc" path="res://opciones.gd" id="1_wvblx"]
+[ext_resource type="Texture2D" uid="uid://byee4aj0v1dy8" path="res://Personajes/Gemini_Generated_Image_2n74at2n74at2n74.png" id="2_wvblx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Menu_opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wvblx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wvblx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -104.0
+offset_right = 173.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Audio" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "Jugar"
+
+[node name="Accesibildiad" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+text = "Opciones"
+
+[node name="Graficos" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Salir"
+
+[node name="Atras" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Salir"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Atras" to="." method="_on_atras_pressed"]

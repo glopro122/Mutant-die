@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://luabqukfme55"]
+
+[ext_resource type="Script" uid="uid://cjntyfqq675vl" path="res://personajes.gd" id="1_yy0ju"]
+[ext_resource type="Texture2D" uid="uid://bvejsf8ot6pab" path="res://pngtree-a-large-industrial-factory-with-thick-smoke-billowing-from-the-chimneys-image_16761692.jpg" id="2_t8ily"]
+[ext_resource type="Texture2D" uid="uid://d4hln1ent8hk6" path="res://Tiles/tile_0084.png" id="3_dtfdj"]
+[ext_resource type="Texture2D" uid="uid://dwlxvmpli7e8l" path="res://Personajes/Imagen10.png" id="4_dtfdj"]
+[ext_resource type="Texture2D" uid="uid://bhfv3tpnxmpkj" path="res://Personajes/Imagen14.png" id="5_kan8v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Personajes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yy0ju")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t8ily")
+
+[node name="Mago" type="Button" parent="ColorRect"]
+layout_direction = 4
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+scale = Vector2(1.95187, 1.49752)
+theme_override_icons/icon = ExtResource("3_dtfdj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "Reciclador"
+icon = ExtResource("4_dtfdj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Mujer" type="Button" parent="ColorRect"]
+layout_direction = 4
+layout_mode = 0
+offset_left = 955.0
+offset_top = 1.0
+offset_right = 1055.0
+offset_bottom = 101.0
+scale = Vector2(1.95187, 1.49752)
+theme_override_icons/icon = ExtResource("3_dtfdj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "Cinetífica"
+icon = ExtResource("5_kan8v")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="ColorRect/Mago" to="." method="_on_mago_pressed"]
+[connection signal="pressed" from="ColorRect/Mujer" to="." method="_on_mujer_pressed"]

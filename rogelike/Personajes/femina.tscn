@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6jukxkmpeka0"]
+
+[ext_resource type="Script" uid="uid://dk3m6t4l4qxxh" path="res://femina.gd" id="1_exyqf"]
+[ext_resource type="Texture2D" uid="uid://bhfv3tpnxmpkj" path="res://Personajes/Imagen14.png" id="2_exyqf"]
+[ext_resource type="Texture2D" uid="uid://bq8l1wfk4gwgr" path="res://Personajes/Imagen15.png" id="2_uk8qo"]
+[ext_resource type="PackedScene" uid="uid://dcdyssxc5ugwy" path="res://vida.tscn" id="4_bfvu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfvu8"]
+size = Vector2(13.757, 15.4639)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfvu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uk8qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_exyqf")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 4.0
+}]
+
+[node name="Femina" type="CharacterBody2D"]
+scale = Vector2(1.59919, 2.522)
+collision_mask = 7
+script = ExtResource("1_exyqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.594766)
+shape = SubResource("RectangleShape2D_bfvu8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.120796, 0.47947)
+scale = Vector2(0.0581678, 0.0370604)
+sprite_frames = SubResource("SpriteFrames_bfvu8")
+animation = &"correr"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Vida" parent="." instance=ExtResource("4_bfvu8")]
+offset_left = -5.00253
+offset_top = -8.32672
+offset_right = 15.9975
+offset_bottom = -4.32672
+scale = Vector2(0.530533, 0.218822)

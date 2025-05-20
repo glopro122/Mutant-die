@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvni64coj21o5"]
+
+[ext_resource type="Texture2D" uid="uid://byee4aj0v1dy8" path="res://Personajes/Gemini_Generated_Image_2n74at2n74at2n74.png" id="1_7ucbv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(580, 325.25)
+scale = Vector2(1.10547, 0.861673)
+texture = ExtResource("1_7ucbv")

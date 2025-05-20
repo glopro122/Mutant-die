@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://sexn5yyhdngo"]
+
+[ext_resource type="Script" uid="uid://crklxiyxsxew0" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://sq1fc0dvi8ci" path="res://Imagen de WhatsApp 2025-05-19 a las 07.53.56_fcc7c18e.jpg" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://b8268fqfl16bj" path="res://Imagen3.png" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://bm6plkuxeaeul" path="res://Imagen4.png" id="4_4hy44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ouk20")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 381.0
+offset_bottom = 371.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.76018, 0.637454)
+texture = ExtResource("2_ouk20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -104.0
+offset_right = 173.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Jugar" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+icon = ExtResource("3_mae5d")
+flat = true
+icon_alignment = 1
+
+[node name="Opciones" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+icon = ExtResource("4_4hy44")
+flat = true
+icon_alignment = 1
+
+[node name="Salir" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Salir"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

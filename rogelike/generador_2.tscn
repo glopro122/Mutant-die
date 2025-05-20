@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxa1tbo4ry8mk"]
+
+[ext_resource type="Script" uid="uid://c0x2j08mwv5e3" path="res://area_2d.gd" id="1_hrokw"]
+
+[node name="Generador 2" type="Area2D"]
+script = ExtResource("1_hrokw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

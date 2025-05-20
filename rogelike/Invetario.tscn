@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://m3p6hpxyqc0i"]
+
+[ext_resource type="Script" uid="uid://blfe5ldq8gvu1" path="res://invetario.gd" id="1_17mey"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_17mey")
+
+[node name="Slot0" type="Sprite2D" parent="."]
+
+[node name="Slot1" type="Sprite2D" parent="."]
+
+[node name="Slot2" type="Sprite2D" parent="."]
+
+[node name="Slot3" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 46.0
+offset_bottom = 10.0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkma7obu8wxjb"]
+
+[ext_resource type="Script" uid="uid://ctn5slp5ulmtv" path="res://node_2d.gd" id="1_rv8or"]
+[ext_resource type="PackedScene" uid="uid://sa731cs27jlj" path="res://barbaro.tscn" id="2_wrwq3"]
+
+[node name="Generador" type="Node2D"]
+script = ExtResource("1_rv8or")
+escena_enemigo = ExtResource("2_wrwq3")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

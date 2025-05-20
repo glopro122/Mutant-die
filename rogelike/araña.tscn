@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcikvc0gslpxr"]
+
+[ext_resource type="Script" uid="uid://dsvba76qji188" path="res://araña.gd" id="1_x8xdg"]
+[ext_resource type="Texture2D" uid="uid://nkup7h38tx2d" path="res://Tiles/tile_0121.png" id="2_u3fns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsiy8"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8xdg"]
+
+[node name="Araña" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_x8xdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u3fns")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vsiy8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x8xdg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

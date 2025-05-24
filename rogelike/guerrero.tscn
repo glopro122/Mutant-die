@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca680gjm63kx8"]
+[gd_scene load_steps=6 format=3 uid="uid://ca680gjm63kx8"]
 
 [ext_resource type="Script" uid="uid://dx87h81o7putc" path="res://guerrero.gd" id="1_m4vqf"]
-[ext_resource type="Texture2D" uid="uid://q8i8lx813oxb" path="res://Personajes/Gemini_Generated_Image_jn5kjqjn5kjqjn5k.png" id="2_m4vqf"]
+[ext_resource type="Texture2D" uid="uid://bgkmykbyu5hb" path="res://Imagen33.png" id="2_m4vqf"]
+[ext_resource type="Script" uid="uid://c4on01iyfs840" path="res://salud_2.gd" id="3_c4sqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4vqf"]
 size = Vector2(16, 15.5)
@@ -10,8 +11,8 @@ size = Vector2(16, 15.5)
 
 [node name="Guerrero" type="CharacterBody2D"]
 scale = Vector2(1.18229, 2.76261)
-collision_layer = 3
-collision_mask = 7
+collision_layer = 131
+collision_mask = 15
 script = ExtResource("1_m4vqf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
@@ -19,13 +20,19 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m4vqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, 0.5)
-scale = Vector2(0.0192518, 0.0200941)
+position = Vector2(0.422908, 0.542964)
+scale = Vector2(0.0523469, 0.0268825)
 texture = ExtResource("2_m4vqf")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 137
+collision_mask = 137
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_c4sqq")
 
+[node name="Salud2" type="Node2D" parent="."]
+script = ExtResource("3_c4sqq")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

@@ -20,3 +20,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		velocity = velocity * -1  # Simple retroceso
 		move_and_slide()
 		print("Chocó con jugador")
+		
+
+
+
+
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+		if "is_bullet" in body:
+			print("Entro bala")
+			$Salud2.recibir_daño(25)
+			body.queue_free()

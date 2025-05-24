@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://utblkqxjshmx" path="res://Niveles.gd" id="1_calb2"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Niveles" type="Node2D"]
 script = ExtResource("1_calb2")

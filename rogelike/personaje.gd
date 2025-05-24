@@ -13,11 +13,12 @@ var nivel = 1
 
 # Nodos
 @onready var sprite = $Mago
-@onready var sistema_niveles = $SistemaNiveles
+var sistema_niveles: SistemaNivelesCirculares
+
+
 
 func _ready():
 	add_to_group("jugador")
-	# Configuración básica de colisiones (tu código original)
 	var area = Area2D.new()
 	var col_shape = CollisionShape2D.new()
 	col_shape.shape = CircleShape2D.new()
@@ -27,11 +28,11 @@ func _ready():
 	add_child(area)
 
 func _physics_process(delta):
-	# Movimiento (tu código original)
-	animacion()
+
+	
 	var direccion = Input.get_vector("izqui", "derecha", "arriba", "abajo")
 	velocity = speed * direccion
-	
+	animacion()
 	if direccion.x != 0:
 		sprite.flip_h = direccion.x < 0
 	
@@ -50,12 +51,9 @@ func animacion():
 	else:
 		sprite.play("Reposo")
 
-func ganar_experiencia(cantidad):
-	experiencia += cantidad
-	# Verificar si subió de nivel
-	if sistema_niveles.verificar_nivel(experiencia, self):
-		nivel += 1
-		print("¡Subiste a nivel ", nivel, "!")
+func ganar_experiencia(cantidad: int):
+	if sistema_niveles:  # Verifica que la referencia exista
+		sistema_niveles.ganar_experiencia(cantidad, self)
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "is_enemy" in body:

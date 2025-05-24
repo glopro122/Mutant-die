@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b48pu2a4gikh0"]
+
+[ext_resource type="Script" uid="uid://b33shkiq1qda" path="res://pistola.gd" id="1_5krjw"]
+[ext_resource type="Texture2D" uid="uid://g4nkwysq3s2o" path="res://Personajes/Imagen22.png" id="2_37mnn"]
+
+[node name="Pistola" type="Node2D"]
+rotation = 0.0176252
+script = ExtResource("1_5krjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10.7333, -5.10704)
+rotation = -0.42912
+scale = Vector2(0.239277, 0.142609)
+texture = ExtResource("2_37mnn")
+
+[node name="BalaSpawn" type="Node2D" parent="Sprite2D"]
+position = Vector2(114.272, 37.134)
